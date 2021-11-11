@@ -12,47 +12,6 @@
     <input type="submit" name="submit" value="Search" class="btn btn-primary" />
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cellNum)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.userName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cellNum)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit",
-                    new { id = item.idUser },
-                    new { @class = "btn btn-warning" })
-
-                @Html.ActionLink("Details", "Details",
-                    new { id = item.idUser },
-                    new { @class = "btn btn-secondary" })
-
-                @Html.ActionLink("Delete", "Delete",
-                    new { id = item.idUser },
-                    new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-    }
 
     <div class="text-right">
         <div class="dropdown">
@@ -114,7 +73,7 @@
         </tr>
 
         @foreach (var item in Model)
-        {
+         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
@@ -131,6 +90,6 @@
                     <a href="@Url.Action("Delete", new { id = item.idUser })" class="btn btn-danger btn-xs">Delete</a>
                 </td>
             </tr>
-        }
+         }
 
     </table>
