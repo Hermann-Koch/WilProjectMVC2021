@@ -6,7 +6,13 @@
                 <div class="contact-form-area m-top-30">
                     <br />
                     <h3>Provide your email and password to log in.</h3>
-                    <br />
+                    
+                    <div class="text-right">
+                                     @*@{ if (User.IsInRole("Admin")) {*@
+                        <button type="button" @*href="@Html.ActionLink("Index", "Admin")"*@ class="btn  btn-lg btn-warning">Admin</button>
+                                             } }
+                        <br />
+                    </div> 
 
                     <form action="Verify" method="post" role="form">
                         @Html.AntiForgeryToken()
@@ -51,9 +57,9 @@
                         </div>
                     </form>
                     @* Enable this once you have account confirmation enabled for password reset functionality
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                        </p>*@
+        <p>
+            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+        </p>*@
 
                 </div>
             </div>
