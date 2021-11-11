@@ -1,0 +1,136 @@
+﻿@model IEnumerable<WilProjectMVC2021.Models.Users>
+
+@{
+    ViewBag.Title = "Admin Page";
+}
+
+<h2><strong>Admin Page</strong></h2>
+<br />
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+{
+    <b> Search Option: </b>@Html.RadioButton("option", "Number") <text>Number</text> @Html.RadioButton("option", "All") <text> All </text> @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" class="btn btn-primary" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cellNum)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cellNum)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit",
+                    new { id = item.idUser },
+                    new { @class = "btn btn-warning" })
+
+                @Html.ActionLink("Details", "Details",
+                    new { id = item.idUser },
+                    new { @class = "btn btn-secondary" })
+
+                @Html.ActionLink("Delete", "Delete",
+                    new { id = item.idUser },
+                    new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+    <div class="text-right">
+        <div class="dropdown">
+            <button class="btn btn-default btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-pressed="true" aria-expanded="false">
+                TECHSPO Technology Expos
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-content dropdown-menu-right" aria-labelledby="">
+                <li class="dropdown-item dropdown dropdown-content">
+                <li><a class="dropdown-item dropdown-content active" href="https://techsposydney.com/"><strong>TECHSPO Sydney 2022</strong><br />(March 22 - 23, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techsponyc.com/"><strong>TECHSPO New York 2022</strong><br />(April 21 - 22, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspochicago.com/"><strong>TECHSPO Chicago 2022</strong><br />(May 9 - 10, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspotoronto.ca/"><strong>TECHSPO Torronto 2022</strong><br />(May 12 - 13, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspohouston.com/"><strong>TECHSPO Houston 2022</strong><br />(May 26 - 27, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspoboston.com/"><strong>TECHSPO Boston 2022</strong><br />(June 13 - 14, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techsposandiego.com/"><strong>TECHSPO San Diego 2022</strong><br />(June 16 - 17, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspoatlanta.com/"><strong>TECHSPO Atlanta 2022</strong><br />(June 30 - July 1, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspola.com/"><strong>TECHSPO Los Angeles 2022</strong><br />(July 11 - 12, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="http://techspolondon.co.uk/"><strong>TECHSPO London 2022</strong><br />(September 1 - 2, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="http://techspoamsterdam.nl/"><strong>TECHSPO Amsterday 2022</strong><br />(September 8 - 9, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techsposingapore.sg/"><strong>TECHSPO Singapore 2022</strong><br />(September 15 - 16, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspodubai.ae/"><strong>TECHSPO Dubai 2022</strong><br />(October 18 - 19, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspocapetown.co.za/"><strong>TECHSPO Cape Town 2022</strong><br />(October 27 - 28, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspojoburg.co.za/"><strong>TECHSPO Johannesburg 2022</strong><br />(November 2 - 3, 2022)</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item active" href="https://techspoatsea.com/"><strong>TECHSPO At Sea 2022</strong><br />(April 6 -10, 2023)</a></li>
+            </ul>
+        </div>
+    </div>
+    <p>
+        <a href='@Url.Action("Create")' class="btn btn-default">Create New</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cellphone)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cellphone)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.idUser })" class="btn btn-success btn-xs">Edit</a>  |
+                    <a href="@Url.Action("Details", new { id = item.idUser })" class="btn btn-info btn-xs">Details</a>
+                    <a href="@Url.Action("Delete", new { id = item.idUser })" class="btn btn-danger btn-xs">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
